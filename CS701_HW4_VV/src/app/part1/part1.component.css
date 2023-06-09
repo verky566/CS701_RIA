@@ -1,0 +1,76 @@
+table {
+  border-collapse: collapse;
+  font-family: Futura, Arial, sans-serif;
+}
+caption {
+  font-size: larger;
+}
+th,
+td {
+  padding: 0.5em;
+}
+th,
+thead {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+tr {
+  background: #ccc;
+}
+tr:hover {
+  background: #def;
+}
+td {
+  border-right: 1px solid #777;
+}
+table {
+  border: 2px solid #777;
+}
+
+input.rounded {
+  border: 1px solid #ccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 2px 2px 3px #666;
+  -webkit-box-shadow: 2px 2px 3px #666;
+  box-shadow: 2px 2px 3px #666;
+  font-size: 12px;
+  padding: 4px 7px;
+  outline: 0;
+}
+input.rounded:focus {
+  border: 4px solid;
+  border-color: #ff0000;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+button {
+  margin: 1rem 1rem 0 0;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  color: black;
+  font-size: 0.6rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  color: red;
+  border-color: #8bd6ff;
+  background-color: #e0e0e0;
+}
+
+button:focus {
+  border-color: #8bd6ff;
+}
+
+.alert {
+  color: red;
+  font-style: italic;
+}

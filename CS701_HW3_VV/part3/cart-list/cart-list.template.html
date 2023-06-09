@@ -1,0 +1,51 @@
+<table>
+  <caption>
+    <b>My Books</b>
+  </caption>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Qty</th>
+      <th>UnitPrice</th>
+      <th>$UnitPrice</th>
+      <th>Line Total</th>
+      <th>Total {{$ctrl.updateTotal() | currency}}</th>
+    </tr>
+  </thead>
+  <!-- Add code for table rows -->
+  <!--  track by $index -->
+  <tbody ng-repeat="randomBook in $ctrl.defaultBooks track by $index">
+    <tr>
+      <td>
+        <!-- Best Practice: use the dash-delimited format -->
+         <!-- bind the “view” to the “model” using ng-model -->
+        <input type="text" ng-model="randomBook.title" value="{{randomBook.title}}" />
+      </td>
+      <td>
+        <input type="text" ng-model="randomBook.qty" value="{{randomBook.qty}}" />
+      </td>
+      <td>
+        <input type="text" ng-model="randomBook.price" value="{{randomBook.price}}" />
+      </td>
+      <!-- use the currency -->
+      <td>{{randomBook.price | currency}}</td>
+      <td>{{randomBook.price * randomBook.qty | currency}}</td>
+      </td>
+      <td><button ng-click="$ctrl.removeBook($index)">Remove</button></td>
+    </tr>
+  </tbody>
+  <tr>
+    <th colspan="1">
+      <button ng-click="$ctrl.addBook()">New</button>
+    </th>
+    <th colspan="1">
+      <button ng-click="$ctrl.undoStack()" id="undo_id">Undo</button>
+    </th>
+    <th colspan="1">
+      <button ng-click="$ctrl.redoStack()" id="redo_id">Redo</button>
+    </th>
+    <th colspan="3">
+      <button ng-click="$ctrl.saveBooks()">Save</button>
+    </th>
+  </tr>
+</table>

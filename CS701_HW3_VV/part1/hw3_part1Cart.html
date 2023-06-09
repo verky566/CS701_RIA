@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <title>Book Shopping Cart</title>
+    <script src="../js/angular182.js"></script>
+    <script src="hw3_part1Controller.js"></script>
+    <link rel="stylesheet" href="../css/hw3.css" />
+  </head>
+  <body ng-controller="CartControler" ng-init="updateTotal()">
+    <table>
+      <caption>
+        <b>My Books</b>
+      </caption>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Qty</th>
+          <th>UnitPrice</th>
+          <th>$UnitPrice</th>
+          <th>Line Total</th>
+          <th>Total ${{total | number}}</th>
+        </tr>
+      </thead>
+      <!-- table rows-->
+      <tbody ng-repeat="defaultBook in defaultBooks">
+        <tr>
+          <td>
+            <input ng-model="defaultBook.title" size="25" />
+          </td>
+          <td>
+            <input ng-model="defaultBook.qty" size="3" />
+          </td>
+          <td>
+            <input ng-model="defaultBook.price" size="9" />
+          </td>
+          <td>{{defaultBook.price | currency}}</td>
+          <td>{{defaultBook.price * defaultBook.qty | currency}}</td>
+          <td>
+            <button ng-click="removeBook($index)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+      <tr>
+        <th colspan="3">
+          <button ng-click="addBook()">New</button>
+        </th>
+        <th colspan="3">
+          <button ng-click="saveBooks()">Save</button>
+        </th>
+      </tr>
+    </table>
+  </body>
+</html>

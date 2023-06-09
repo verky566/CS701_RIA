@@ -1,0 +1,7 @@
+<h3>Part 2</h3>
+<div>
+  <p>Input: <input [(ngModel)]="input" /></p>
+  <p>Delimiter: <input [(ngModel)]="delimiter" /></p>
+  <p>{{ input | tokenizer }} (default)</p>
+  <p>{{ input | tokenizer : delimiter }} (with option)</p>
+</div>

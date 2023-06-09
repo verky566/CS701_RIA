@@ -1,0 +1,53 @@
+<h3>Part 1</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Qty</th>
+      <th>UnitPrice</th>
+      <th>$UnitPrice</th>
+      <th>Line Total</th>
+      <th>Total {{ totalAmount() | currency }}</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let bookRecord of defaultBooks; let i = index">
+    <tr>
+      <td>
+        <input type="text" [(ngModel)]="bookRecord.title" class="rounded" />
+      </td>
+      <td>
+        <input
+          type="number"
+          [(ngModel)]="bookRecord.qty"
+          (ngModelChange)="totalAmount()"
+          size="3"
+          class="rounded"
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          [(ngModel)]="bookRecord.price"
+          (ngModelChange)="totalAmount()"
+          size="9"
+          class="rounded"
+        />
+      </td>
+      <td>{{ bookRecord.price | currency }}</td>
+      <td>{{ bookRecord.price * bookRecord.qty | currency }}</td>
+      <td>
+        <button type="button" class="btn" (click)="removeBook(i)">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <tr>
+    <th colspan="3">
+      <button type="button" class="btn" (click)="addBook()">New</button>
+    </th>
+    <th colspan="3">
+      <button type="button" class="btn" (click)="saveBooks()">Save</button>
+    </th>
+  </tr>
+</table>
